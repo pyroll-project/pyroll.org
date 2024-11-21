@@ -1,0 +1,24 @@
+{% macro render() %}
+{% set navbar_yaml = load_data(path="@/navbar.yaml") %}
+<nav id="nav" class="navbar navbar-expand-lg bg-pyroll-dark" data-bs-theme="dark">
+  <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img heigth="48" width="48" src="{{ get_url(path="pyroll_icon.svg") }}"/></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor02">
+      <ul class="navbar-nav me-auto">
+          {% for ni in navbar_yaml.nav_items %}
+          <li class="nav-item" id="nav-{{ ni.key }}">
+              <a class="nav-link" href="{{ ni.url }}">{{ ni.label }}</a>
+          </li>
+          {% endfor %}
+      </ul>
+      <!-- <form class="d-flex">
+        <input class="form-control me-sm-2" type="search" placeholder="Search">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+      </form> -->
+    </div>
+  </div>
+</nav>
+{% endmacro %}

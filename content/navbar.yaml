@@ -1,0 +1,8 @@
+nav_items:
+    - key: home
+      label: Home
+      url: "/"
+    - key: about
+      label: About
+      url: "/about"
+     
